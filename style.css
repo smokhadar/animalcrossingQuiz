@@ -1,0 +1,11 @@
+* {
+    text-align: center;
+}
+
+.question {
+    display: none;
+}
+
+#startPage {
+    display: inline-block;
+}
