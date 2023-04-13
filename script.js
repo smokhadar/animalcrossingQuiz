@@ -5,6 +5,7 @@ var startPage = document.getElementById('startPage');
 var q1 = document.getElementById('q1');
 
 var timerEl = document.getElementById('timer');
+var wrongUpdate = document.getElementById('wrongUpdate');
 
 var wrongA = document.getElementsByClassName ('wrong');
 
@@ -79,14 +80,7 @@ startButton.addEventListener('click', function () {
         q5.style.display = "inline-block";
      } } 
 );
-
-
 });
-    //  loop for wrong answer choices
-    //  for (var i=0; i < wrongA.length; i++) {
-    //     wrongA[i].addEventListener('click', function () {
-
-    //     }) }
 
 
 // create timer function
@@ -108,15 +102,23 @@ function timer() {
             timerEl.textContent = '';
             // stop timer
             clearInterval(timeInterval);
-            // display form to submit initials
-            // displayMessage();
         }
+         //  loop for wrong answer choices
+            for (var i=0; i < wrongA.length; i++) {
+                wrongA[i].addEventListener('click', function () {
+                    // decrement 5 seconds from timer
+                    timeLeft--;
+                    // display message to user that the answer was wrong
+                    wrongUpdate.textContent = "Wrong! Watch the timer...";
+                    // clear message after two seconds
+                    setTimeout(function() {
+                        wrongUpdate.textContent = '';
+                    }, 2000);
+                }) }
     },1000);
+           // display form to submit initials
+            // displayMessage();
 }
-
-    // subtract time when answer wrong
-
-// create form to submit name at end for leaderboard
 
 // display final form
 function displayMessage() {
