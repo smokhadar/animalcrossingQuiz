@@ -4,6 +4,8 @@ var startButton = document.getElementById('startButton');
 var startPage = document.getElementById('startPage');
 var q1 = document.getElementById('q1');
 
+var timerEl = document.getElementById('timer');
+
 var wrongA = document.getElementsByClassName ('wrong');
 
 var correctA1 = document.getElementById('correct1');
@@ -17,6 +19,12 @@ var button = document.querySelectorAll('button');
 startButton.addEventListener('click', function () {
 
     // start timer
+    timer();
+
+    // show timer countdown
+    if (timerEl.style.display = "none") {
+        timerEl.style.display = "inline-block";
+    }
 
     // hide startpage
     if (startPage.style.display = "inline-block") {
@@ -82,6 +90,35 @@ startButton.addEventListener('click', function () {
 
 
 // create timer function
+function timer() {
+    var timeLeft = 60;
+
+    var timeInterval = setInterval(function () {
+        if (timeLeft > 1) {
+            // set textcontent of timer to show remaining seconds
+            timerEl.textContent = timeLeft + ' seconds remaining';
+            // decrease timeleft by 1
+            timeLeft--;
+        } else if (timeLeft === 1) {
+            // when timeleft =1, rename to second instead of seconds
+            timerEl.textContent = timeLeft + ' second remaning'
+            timeLeft--;
+        } else {
+            // once time 0, set to empty string
+            timerEl.textContent = '';
+            // stop timer
+            clearInterval(timeInterval);
+            // display form to submit initials
+            // displayMessage();
+        }
+    },1000);
+}
+
     // subtract time when answer wrong
 
 // create form to submit name at end for leaderboard
+
+// display final form
+function displayMessage() {
+
+}

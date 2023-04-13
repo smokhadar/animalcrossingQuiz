@@ -9,3 +9,7 @@
 #startPage {
     display: inline-block;
 }
+
+.timer {
+    display: none;
+}
