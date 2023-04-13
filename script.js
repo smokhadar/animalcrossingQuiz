@@ -3,6 +3,7 @@ var questions = document.getElementsByClassName("question");
 var startButton = document.getElementById('startButton');
 var startPage = document.getElementById('startPage');
 var q1 = document.getElementById('q1');
+var q5 = document.getElementById('q5');
 
 var timerEl = document.getElementById('timer');
 var wrongUpdate = document.getElementById('wrongUpdate');
@@ -13,14 +14,23 @@ var correctA1 = document.getElementById('correct1');
 var correctA2 = document.getElementById('correct2');
 var correctA3 = document.getElementById('correct3');
 var correctA4 = document.getElementById('correct4');
+var correctA5 = document.getElementById('correct5');
+
+var form = document.getElementById('finalForm');
+var finalScore = document.getElementById('score');
 
 var button = document.querySelectorAll('button');
+
+var score
 
 // add eventlistener to start button
 startButton.addEventListener('click', function () {
 
     // start timer
     timer();
+
+    // clear score
+    var score = 0;
 
     // show timer countdown
     if (timerEl.style.display = "none") {
@@ -45,7 +55,9 @@ startButton.addEventListener('click', function () {
             }
             if (q2.style.display = "none") {
                 q2.style.display = "inline-block";
-             } } 
+             } 
+             score++;
+            }
         );
 
     // if correct answer chosen, hide q2 and show q3
@@ -56,7 +68,9 @@ startButton.addEventListener('click', function () {
         }
         if (q3.style.display = "none") {
             q3.style.display = "inline-block";
-         } } 
+         } 
+         score++;
+        } 
     );
 
     // if correct answer chosen, hide q3 and show q4
@@ -67,7 +81,9 @@ startButton.addEventListener('click', function () {
         }
         if (q4.style.display = "none") {
             q4.style.display = "inline-block";
-         } } 
+         } 
+         score++;
+        } 
     );
 
    // if correct answer chosen, hide q4 and show q5
@@ -78,8 +94,19 @@ startButton.addEventListener('click', function () {
     }
     if (q5.style.display = "none") {
         q5.style.display = "inline-block";
-     } } 
+     } 
+     score++;
+    } 
 );
+     // if correct answer chosen, hide q4 and show q5
+   correctA5.addEventListener ('click', function () {
+    console.log("correct answer chosen");
+    if (q5.style.display = "inline-block") {
+        q5.style.display = "none";
+    }
+     score++;
+     timeLeft=0;
+    });
 });
 
 
@@ -102,6 +129,8 @@ function timer() {
             timerEl.textContent = '';
             // stop timer
             clearInterval(timeInterval);
+            // display final form
+            displayMessage();
         }
          //  loop for wrong answer choices
             for (var i=0; i < wrongA.length; i++) {
@@ -117,10 +146,12 @@ function timer() {
                 }) }
     },1000);
            // display form to submit initials
-            // displayMessage();
 }
 
-// display final form
+// final form
 function displayMessage() {
-
+    if (form.style.display = "none") {
+        form.style.display = "inline-block";
+    }
+    finalScore.textContent = "Your final score is " + score; 
 }
