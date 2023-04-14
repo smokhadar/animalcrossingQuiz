@@ -22,6 +22,9 @@ var finalScore = document.getElementById('score');
 var button = document.querySelectorAll('button');
 
 var score
+var timeLeft
+
+var timeInterval 
 
 // add eventlistener to start button
 startButton.addEventListener('click', function () {
@@ -104,25 +107,34 @@ startButton.addEventListener('click', function () {
     if (q5.style.display = "inline-block") {
         q5.style.display = "none";
     }
+    // not calculating score?? check miniproject example
      score++;
-     timeLeft=0;
+     // once finished, display final screen, clear timer, and remove timer countdown
+    displayMessage();
+    clearInterval(timeInterval);
+    timerEl.textContent = '';
     });
 });
 
+// create for loop for correct answer choices
+    // show "correct" - change "wrongUpdate variable to update variable to show either message"
+// change code so next question present if ANY answer chosen
+
+// view high scores button
 
 // create timer function
 function timer() {
     var timeLeft = 60;
 
-    var timeInterval = setInterval(function () {
+     timeInterval = setInterval(function () {
         if (timeLeft > 1) {
             // set textcontent of timer to show remaining seconds
-            timerEl.textContent = timeLeft + ' seconds remaining';
+            timerEl.textContent = 'Time: ' + timeLeft + ' seconds remaining';
             // decrease timeleft by 1
             timeLeft--;
         } else if (timeLeft === 1) {
             // when timeleft =1, rename to second instead of seconds
-            timerEl.textContent = timeLeft + ' second remaning'
+            timerEl.textContent = 'Time: ' + timeLeft + ' second remaning'
             timeLeft--;
         } else {
             // once time 0, set to empty string
@@ -150,8 +162,20 @@ function timer() {
 
 // final form
 function displayMessage() {
-    if (form.style.display = "none") {
+    if (q1.style.display = "inline-block") {
+        q1.style.display = "none";
+    } if (q2.style.display = "inline-block") {
+        q2.style.display = "none";
+    } if (q3.style.display = "inline-block") {
+        q3.style.display = "none";
+    } if (q4.style.display = "inline-block") {
+        q4.style.display = "none";
+    } if (q5.style.display = "inline-block") {
+        q5.style.display = "none";
+    } if (form.style.display = "none") {
         form.style.display = "inline-block";
     }
     finalScore.textContent = "Your final score is " + score; 
 }
+
+// create play again button

@@ -6,59 +6,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Animal Crossing Quiz</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
+    <figure>
+        <audio controls src="themesong.mp3"></audio>
+    </figure>
     <div id="startPage">
-        <span>Test your animal crossing knowledge!</span>
-        <p>Are you Tom Nook savvy? Can you name the most common fish or bug?</p>
-        <p>This quiz will put you to the test - and there's consequences for guessing wrong! </p>
+        <h1>Test your Animal Crossing knowledge!</h1>
+        <p class="lead">Are you Tom Nook savvy?</p>
+        <p class="lead">Can you name the most common fish or bug?</p>
+        <p class="lead">This quiz will put you to the test - <span id="consequences">and there's consequences for guessing wrong!</span></p>
         <p>Click "I'm ready" to get started...</p>
-        <button id="startButton">I'm Ready!</button>
+        <button type="button" id="startButton" class="btn-lg btn btn-dark">I'm Ready!</button>
     </div>
 
     <div id="q1" class="question hide">
         <h1>question 1?</h1>
-            <button class="wrong">option 1</button>
-            <button id="correct1">option 2</button>
-            <button class="wrong">option 3</button>
-            <button class="wrong">option 4</button>
+            <button class="wrong btn btn-danger btn-lg">option 1</button>
+            <button id="correct1" class="btn btn-success btn-lg">option 2</button>
+            <button class="wrong btn btn-info btn-lg">option 3</button>
+            <button class="wrong btn btn-warning btn-lg">option 4</button>
     </div>
 
     <div id="q2" class="question hide">
         <h1>question 2?</h1>
-            <button id="correct2">option 1</button>
-            <button class="wrong">option 2</button>
-            <button class="wrong">option 3</button>
-            <button class="wrong">option 4</button>
+            <button id="correct2" class="btn btn-danger btn-lg">option 1</button>
+            <button class="wrong btn btn-success btn-lg">option 2</button>
+            <button class="wrong btn btn-info btn-lg">option 3</button>
+            <button class="wrong btn btn-warning btn-lg">option 4</button>
     </div>
 
     <div id="q3" class="question hide">
         <h1>question 3?</h1>
-            <button class="'wrong">option 1</button>
-            <button class="wrong">option 2</button>
-            <button class="wrong">option 3</button>
-            <button id="correct3">option 4</button>
+            <button class="'wrong btn btn-danger btn-lg">option 1</button>
+            <button class="wrong btn btn-success btn-lg">option 2</button>
+            <button class="wrong btn btn-info btn-lg">option 3</button>
+            <button id="correct3" class="btn btn-warning btn-lg">option 4</button>
     </div>
 
     <div id="q4" class="question hide">
         <h1>question 4?</h1>
-            <button class="wrong">option 1</button>
-            <button class="wrong">option 2</button>
-            <button class="wrong">option 3</button>
-            <button id="correct4">option 4</button>
+            <button class="wrong btn btn-danger btn-lg">option 1</button>
+            <button class="wrong btn btn-success btn-lg">option 2</button>
+            <button class="wrong btn btn-info btn-lg">option 3</button>
+            <button id="correct4" class="btn btn-warning btn-lg">option 4</button>
     </div>
 
     <div id="q5" class="question hide">
         <h1>question 5?</h1>
-            <button class="wrong">option 1</button>
-            <button class="correct5">option 2</button>
-            <button class="wrong">option 3</button>
-            <button class="wrong">option 4</button>
+            <button class="wrong btn btn-danger btn-lg">option 1</button>
+            <button id="correct5" class="btn btn-success btn-lg">option 2</button>
+            <button class="wrong btn btn-info btn-lg">option 3</button>
+            <button class="wrong btn btn-warning btn-lg">option 4</button>
     </div>
 
-    <div>
+    <div id="timerDiv">
         <p id="timer"></p>
         <p id="wrongUpdate"></p> 
     </div>
@@ -67,7 +72,9 @@
         <form id="finalForm">
             <h1>Good job! </h1>
             <p id="score"></p>
-            <input>
+            <label for="initials">Initials:</label>
+            <input id="initials" type="text" placeholder="ex. LM" />
+            <button id="submit" class="btn-lg btn btn-dark">Submit</button>
         </form>
     </div>
 
