@@ -3,18 +3,15 @@ var questions = document.getElementsByClassName("question");
 var startButton = document.getElementById('startButton');
 var startPage = document.getElementById('startPage');
 var q1 = document.getElementById('q1');
+var q2 = document.getElementById('q2');
+var q3 = document.getElementById('q3');
+var q4 = document.getElementById('q4');
 var q5 = document.getElementById('q5');
 
 var timerEl = document.getElementById('timer');
-var wrongUpdate = document.getElementById('wrongUpdate');
+var update = document.getElementById('update');
 
 var wrongA = document.getElementsByClassName ('wrong');
-
-var correctA1 = document.getElementById('correct1');
-var correctA2 = document.getElementById('correct2');
-var correctA3 = document.getElementById('correct3');
-var correctA4 = document.getElementById('correct4');
-var correctA5 = document.getElementById('correct5');
 
 var form = document.getElementById('finalForm');
 var finalScore = document.getElementById('score');
@@ -25,6 +22,14 @@ var score
 var timeLeft
 
 var timeInterval 
+
+function correctAnswer() {
+update.textContent = "Correct!";
+// clear message after two seconds
+setTimeout(function() {
+    update.textContent = '';
+}, 2000);
+}
 
 // add eventlistener to start button
 startButton.addEventListener('click', function () {
@@ -50,8 +55,14 @@ startButton.addEventListener('click', function () {
         q1.style.display = "inline-block";
     }
 
-    // if correct answer chosen, hide q1 and show q2
-    correctA1.addEventListener ('click', function () {
+    q1.addEventListener ('click', function (event) {
+        var element = event.target
+
+        if (element.matches("button")) {
+            var state = element.getAttribute("data-state")
+        };
+
+        if (state === "correct") {
             console.log("correct answer chosen");
             if (q1.style.display = "inline-block") {
                 q1.style.display = "none";
@@ -60,11 +71,27 @@ startButton.addEventListener('click', function () {
                 q2.style.display = "inline-block";
              } 
              score++;
+             correctAnswer();
+            } else {
+                console.log("incorrect answer chosen");
+            if (q1.style.display = "inline-block") {
+                q1.style.display = "none";
             }
-        );
+            if (q2.style.display = "none") {
+                q2.style.display = "inline-block";
+             } 
+            }
+        });
 
     // if correct answer chosen, hide q2 and show q3
-   correctA2.addEventListener ('click', function () {
+   q2.addEventListener ('click', function (event) {
+        var element = event.target
+
+        if (element.matches("button")) {
+            var state = element.getAttribute("data-state")
+        };
+
+    if (state === "correct") {
         console.log("correct answer chosen");
         if (q2.style.display = "inline-block") {
             q2.style.display = "none";
@@ -73,11 +100,28 @@ startButton.addEventListener('click', function () {
             q3.style.display = "inline-block";
          } 
          score++;
-        } 
+         correctAnswer();
+        } else {
+            console.log("incorrect answer chosen");
+            if (q2.style.display = "inline-block") {
+                q2.style.display = "none";
+            }
+            if (q3.style.display = "none") {
+                q3.style.display = "inline-block";
+             } 
+        }
+    }
     );
 
     // if correct answer chosen, hide q3 and show q4
-    correctA3.addEventListener ('click', function () {
+    q3.addEventListener ('click', function (event) {
+        var element = event.target
+
+        if (element.matches("button")) {
+            var state = element.getAttribute("data-state")
+        };
+
+    if (state === "correct") {
         console.log("correct answer chosen");
         if (q3.style.display = "inline-block") {
             q3.style.display = "none";
@@ -86,11 +130,28 @@ startButton.addEventListener('click', function () {
             q4.style.display = "inline-block";
          } 
          score++;
-        } 
+         correctAnswer();
+        } else {
+            console.log("incorrect answer chosen");
+            if (q3.style.display = "inline-block") {
+                q3.style.display = "none";
+            }
+            if (q4.style.display = "none") {
+                q4.style.display = "inline-block";
+             } 
+        }
+        }
     );
 
    // if correct answer chosen, hide q4 and show q5
-   correctA4.addEventListener ('click', function () {
+   q4.addEventListener ('click', function (event) {
+    var element = event.target
+
+        if (element.matches("button")) {
+            var state = element.getAttribute("data-state")
+        };
+
+    if (state === "correct") {
     console.log("correct answer chosen");
     if (q4.style.display = "inline-block") {
         q4.style.display = "none";
@@ -99,30 +160,53 @@ startButton.addEventListener('click', function () {
         q5.style.display = "inline-block";
      } 
      score++;
-    } 
+     correctAnswer();
+    } else {
+        console.log("incorrect answer chosen");
+        if (q4.style.display = "inline-block") {
+            q4.style.display = "none";
+        }
+        if (q5.style.display = "none") {
+            q5.style.display = "inline-block";
+         } 
+    }
+}
 );
+
      // if correct answer chosen, hide q4 and show q5
-   correctA5.addEventListener ('click', function () {
+   q5.addEventListener ('click', function (event) {
+    var element = event.target
+
+        if (element.matches("button")) {
+            var state = element.getAttribute("data-state")
+        };
+
+    if (state === "correct") {
     console.log("correct answer chosen");
     if (q5.style.display = "inline-block") {
         q5.style.display = "none";
+        score++;
+        correctAnswer();
+        displayMessage();
+        clearInterval(timeInterval);
+        timerEl.textContent = '';
+    }} else {
+        console.log("incorrect answer chosen");
+        q5.style.display = "none";
+        displayMessage();
+        clearInterval(timeInterval);
+        timerEl.textContent = '';
     }
     // not calculating score?? check miniproject example
-     score++;
      // once finished, display final screen, clear timer, and remove timer countdown
-    displayMessage();
-    clearInterval(timeInterval);
-    timerEl.textContent = '';
-    });
+        }
+    );
 });
 
-// create for loop for correct answer choices
-    // show "correct" - change "wrongUpdate variable to update variable to show either message"
 // change code so next question present if ANY answer chosen
 
-// view high scores button
 
-// create timer function
+//  timer function
 function timer() {
     var timeLeft = 60;
 
@@ -150,10 +234,10 @@ function timer() {
                     // decrement 5 seconds from timer
                     timeLeft--;
                     // display message to user that the answer was wrong
-                    wrongUpdate.textContent = "Wrong! Watch the timer...";
+                    update.textContent = "Wrong! Watch the timer...";
                     // clear message after two seconds
                     setTimeout(function() {
-                        wrongUpdate.textContent = '';
+                        update.textContent = '';
                     }, 2000);
                 }) }
     },1000);

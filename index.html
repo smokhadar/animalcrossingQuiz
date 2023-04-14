@@ -11,9 +11,17 @@
 </head>
 
 <body>
+    <header>
+        <button class="btn btn-light" id="highScore">View High Scores</button>
     <figure>
         <audio controls src="themesong.mp3"></audio>
     </figure>
+       <div id="timerDiv">
+        <p id="timer"></p>
+        <p id="update"></p> 
+    </div>
+    </header>
+    <main>
     <div id="startPage">
         <h1>Test your Animal Crossing knowledge!</h1>
         <p class="lead">Are you Tom Nook savvy?</p>
@@ -23,49 +31,44 @@
         <button type="button" id="startButton" class="btn-lg btn btn-dark">I'm Ready!</button>
     </div>
 
-    <div id="q1" class="question hide">
+    <div id="q1" class="question">
         <h1>question 1?</h1>
             <button class="wrong btn btn-danger btn-lg">option 1</button>
-            <button id="correct1" class="btn btn-success btn-lg">option 2</button>
+            <button data-state= "correct" id="correct1" class="btn btn-success btn-lg">option 2</button>
             <button class="wrong btn btn-info btn-lg">option 3</button>
             <button class="wrong btn btn-warning btn-lg">option 4</button>
     </div>
 
-    <div id="q2" class="question hide">
+    <div id="q2" class="question">
         <h1>question 2?</h1>
-            <button id="correct2" class="btn btn-danger btn-lg">option 1</button>
+            <button data-state="correct" id="correct2" class="btn btn-danger btn-lg">option 1</button>
             <button class="wrong btn btn-success btn-lg">option 2</button>
             <button class="wrong btn btn-info btn-lg">option 3</button>
             <button class="wrong btn btn-warning btn-lg">option 4</button>
     </div>
 
-    <div id="q3" class="question hide">
+    <div id="q3" class="question">
         <h1>question 3?</h1>
-            <button class="'wrong btn btn-danger btn-lg">option 1</button>
+            <button class="wrong btn btn-danger btn-lg">option 1</button>
             <button class="wrong btn btn-success btn-lg">option 2</button>
             <button class="wrong btn btn-info btn-lg">option 3</button>
-            <button id="correct3" class="btn btn-warning btn-lg">option 4</button>
+            <button data-state= "correct" id="correct3" class="btn btn-warning btn-lg">option 4</button>
     </div>
 
-    <div id="q4" class="question hide">
+    <div id="q4" class="question">
         <h1>question 4?</h1>
             <button class="wrong btn btn-danger btn-lg">option 1</button>
             <button class="wrong btn btn-success btn-lg">option 2</button>
             <button class="wrong btn btn-info btn-lg">option 3</button>
-            <button id="correct4" class="btn btn-warning btn-lg">option 4</button>
+            <button id="correct4" data-state="correct" class="btn btn-warning btn-lg">option 4</button>
     </div>
 
-    <div id="q5" class="question hide">
+    <div id="q5" class="question">
         <h1>question 5?</h1>
             <button class="wrong btn btn-danger btn-lg">option 1</button>
-            <button id="correct5" class="btn btn-success btn-lg">option 2</button>
+            <button id="correct5" data-state="correct" class="btn btn-success btn-lg">option 2</button>
             <button class="wrong btn btn-info btn-lg">option 3</button>
             <button class="wrong btn btn-warning btn-lg">option 4</button>
-    </div>
-
-    <div id="timerDiv">
-        <p id="timer"></p>
-        <p id="wrongUpdate"></p> 
     </div>
 
     <div>
@@ -79,6 +82,7 @@
     </div>
 
     <script src="script.js"></script>
+    </main>
 </body>
 
 </html>
