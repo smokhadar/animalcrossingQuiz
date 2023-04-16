@@ -18,6 +18,8 @@ var finalScore = document.getElementById('score');
 
 var button = document.querySelectorAll('button');
 
+var questions = document.getElementsByClassName('question');
+
 var score
 var timeLeft
 
@@ -32,6 +34,7 @@ setTimeout(function() {
 }
 
 // add eventlistener to start button
+
 startButton.addEventListener('click', function () {
 
     // start timer
@@ -196,15 +199,10 @@ startButton.addEventListener('click', function () {
         displayMessage();
         clearInterval(timeInterval);
         timerEl.textContent = '';
-    }
+    }    
     // not calculating score?? check miniproject example
-     // once finished, display final screen, clear timer, and remove timer countdown
-        }
-    );
 });
-
-// change code so next question present if ANY answer chosen
-
+});
 
 //  timer function
 function timer() {
@@ -260,6 +258,50 @@ function displayMessage() {
         form.style.display = "inline-block";
     }
     finalScore.textContent = "Your final score is " + score; 
-}
+};
 
-// create play again button
+var submitInitials = document.getElementById('submit')
+var highScores = document.getElementById('highScores');
+
+
+var viewHighScore = document.getElementById('viewHighScore') 
+
+// user clicks view high score button
+viewHighScore.addEventListener ('click', function() {
+    if (startPage.style.display = "inline-block") {
+    startPage.style.display = "none";
+    } if (highScores.style.display = "none") {
+    highScores.style.display = "inline-block";
+    }
+
+    // clear all questions from page
+    for (i=0; i<questions.length; i++) {
+    if (questions.style.display= "inline-block") {
+    questions.style.display = "none";
+    }
+}
+});
+
+submitInitials.addEventListener('click', function(event) {
+    event.preventDefault();
+    if (form.style.display = "inline-block") {
+    form.style.display = "none";
+    } if (highScores.style.display = "none") {
+        (highScores.style.display = "inline-block")
+    }
+})
+
+
+var playAgain = document.getElementById('playAgain');
+
+playAgain.addEventListener('click', function () {
+
+    if (highScores.style.display = "inline-block") {
+        (highScores.style.display = "none")
+    } if (startPage.style.display = "none") {
+        startPage.style.display = "inline-block";
+    }
+});
+
+
+playAgain();

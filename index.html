@@ -12,7 +12,7 @@
 
 <body>
     <header>
-        <button class="btn btn-light" id="highScore">View High Scores</button>
+        <button class="btn btn-light" id="viewHighScore">View High Scores</button>
     <figure>
         <audio controls src="themesong.mp3"></audio>
     </figure>
@@ -32,43 +32,43 @@
     </div>
 
     <div id="q1" class="question">
-        <h1>question 1?</h1>
-            <button class="wrong btn btn-danger btn-lg">option 1</button>
-            <button data-state= "correct" id="correct1" class="btn btn-success btn-lg">option 2</button>
-            <button class="wrong btn btn-info btn-lg">option 3</button>
-            <button class="wrong btn btn-warning btn-lg">option 4</button>
+        <h1>Which of these bugs is NOT available to catch in Animal Crossing: New Horizons?</h1>
+            <button class="wrong btn btn-danger btn-lg">Rice Grasshopper</button>
+            <button data-state= "correct" class="btn btn-success btn-lg">Titan Beetle</button>
+            <button class="wrong btn btn-info btn-lg">Wasp</button>
+            <button class="wrong btn btn-warning btn-lg">Giant Water Bug</button>
     </div>
 
     <div id="q2" class="question">
-        <h1>question 2?</h1>
-            <button data-state="correct" id="correct2" class="btn btn-danger btn-lg">option 1</button>
-            <button class="wrong btn btn-success btn-lg">option 2</button>
-            <button class="wrong btn btn-info btn-lg">option 3</button>
-            <button class="wrong btn btn-warning btn-lg">option 4</button>
+        <h1>What's the name of the rabbit who runs Bunny Day?</h1>
+            <button data-state="correct" class="btn btn-danger btn-lg">Zipper</button>
+            <button class="wrong btn btn-success btn-lg">Bumper</button>
+            <button class="wrong btn btn-info btn-lg">Thumper</button>
+            <button class="wrong btn btn-warning btn-lg">Tipper</button>
     </div>
 
     <div id="q3" class="question">
-        <h1>question 3?</h1>
-            <button class="wrong btn btn-danger btn-lg">option 1</button>
-            <button class="wrong btn btn-success btn-lg">option 2</button>
-            <button class="wrong btn btn-info btn-lg">option 3</button>
-            <button data-state= "correct" id="correct3" class="btn btn-warning btn-lg">option 4</button>
+        <h1>Which of the following is NOT a fruit you can grow in New Horizons?</h1>
+            <button class="wrong btn btn-danger btn-lg">Coconuts</button>
+            <button class="wrong btn btn-success btn-lg">Cherries</button>
+            <button class="wrong btn btn-info btn-lg">Pears</button>
+            <button data-state= "correct" class="btn btn-warning btn-lg">Kiwis</button>
     </div>
 
     <div id="q4" class="question">
-        <h1>question 4?</h1>
-            <button class="wrong btn btn-danger btn-lg">option 1</button>
-            <button class="wrong btn btn-success btn-lg">option 2</button>
-            <button class="wrong btn btn-info btn-lg">option 3</button>
-            <button id="correct4" data-state="correct" class="btn btn-warning btn-lg">option 4</button>
+        <h1>What's the name of the turnip seller who visits your island on Sunday mornings?</h1>
+            <button class="wrong btn btn-danger btn-lg">Mary Sue</button>
+            <button class="wrong btn btn-success btn-lg">Sonny Jim</button>
+            <button class="wrong btn btn-info btn-lg">Tina Turnip</button>
+            <button data-state="correct" class="btn btn-warning btn-lg">Daisy Mae</button>
     </div>
 
     <div id="q5" class="question">
-        <h1>question 5?</h1>
-            <button class="wrong btn btn-danger btn-lg">option 1</button>
-            <button id="correct5" data-state="correct" class="btn btn-success btn-lg">option 2</button>
-            <button class="wrong btn btn-info btn-lg">option 3</button>
-            <button class="wrong btn btn-warning btn-lg">option 4</button>
+        <h1>What is Blathers afraid of?</h1>
+            <button class="wrong btn btn-danger btn-lg">Fossils</button>
+            <button data-state="correct" class="btn btn-success btn-lg">Bugs</button>
+            <button class="wrong btn btn-info btn-lg">Fish</button>
+            <button class="wrong btn btn-warning btn-lg">Oysters</button>
     </div>
 
     <div>
@@ -79,6 +79,14 @@
             <input id="initials" type="text" placeholder="ex. LM" />
             <button id="submit" class="btn-lg btn btn-dark">Submit</button>
         </form>
+    </div>
+
+    <div id="highScores">
+        <h1> High Scores</h1>
+        <ul id="highScoresList">
+            <li></li>
+        </ul>
+        <button id=playAgain class="btn btn-info"> Play Again</button>
     </div>
 
     <script src="script.js"></script>
