@@ -73,7 +73,7 @@ startButton.addEventListener('click', function () {
             q1.style.display = "none";
             q2.style.display = "inline-block";
             correctAnswer();
-            score = score + 1;
+            score++;
             console.log(score, "score");
          } else {
             // console.log("incorrect answer chosen");
@@ -92,7 +92,7 @@ startButton.addEventListener('click', function () {
             q2.style.display = "none";
             q3.style.display = "inline-block";
             correctAnswer();
-            score = score + 1;
+            score++;
             console.log(score, "score");
         } else {
             q2.style.display = "none";
@@ -111,7 +111,7 @@ startButton.addEventListener('click', function () {
             q3.style.display = "none";
             q4.style.display = "inline-block";
             correctAnswer();
-            score = score + 1;
+            score++;
             console.log(score, "score");
         } else {
             q3.style.display = "none";
@@ -130,7 +130,7 @@ startButton.addEventListener('click', function () {
             q4.style.display = "none";
             q5.style.display = "inline-block";
             correctAnswer();
-            score = score + 1;
+            score++;
             console.log(score, "score");
         } else {
             q4.style.display = "none";
@@ -148,7 +148,7 @@ startButton.addEventListener('click', function () {
         if (state === "correct") {
             q5.style.display = "none"; 
             correctAnswer();
-            score = score + 1;
+            score++;
             displayMessage();
             clearInterval(timeInterval);
             timerEl.textContent = '';
